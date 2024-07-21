@@ -16,7 +16,7 @@ const Navigation = () => {
 
     const content =
         <>
-            <div className='lg:hidden pt-20 absolute flex items-center justify-center w-full left-0 right-0 bg-slate-900 transition z-50'>
+            <div className='lg:hidden pt-20 fixed flex items-center justify-center w-full h-full left-0 right-0 bg-slate-900 transition z-50'>
                 <ul className='text-center text-xl'>
                     <Link to={Path.Home} onClick={handleClick}><li className='my-4 py-4 border-b border-slate-800 hover:bg-slate-800 hover:rounded'>Home</li></Link>
                     <Link to={Path.About} onClick={handleClick}><li className='my-4 py-4 border-b border-slate-800 hover:bg-slate-800 hover:rounded'>About</li></Link>
@@ -72,7 +72,7 @@ const Navigation = () => {
                 </div>
                 <button>
                     <div className='block md:hidden transition' onClick={handleClick}>
-                        {click ? <FaTimes className='absolute right-8 z-[60]' /> : <CiMenuFries className='absolute right-8 z-[60]' />}
+                        {click ? <FaTimes className='fixed right-8 z-[60]' /> : <CiMenuFries className='absolute right-8 z-[60]' />}
                     </div>
                 </button>
             </div>
