@@ -1367,7 +1367,48 @@
                 series: "Robert Langdon #3",
                 reviews: [],
                 _createdOn: 1613551279032
+            }, "2b498bb3-2c64-4a4e-8ddf-9e1b89f8485e": {
+                "title": "Angels & Demons",
+                "cover": "https://m.media-amazon.com/images/I/51pms8KvVuL._SY445_SX342_.jpg",
+                "description": "When world-renowned Harvard symbologist Robert Langdon is summoned to a Swiss research facility to analyze a mysterious symbol—seared into the chest of a murdered physicist—he discovers evidence of the unimaginable: the resurgence of an ancient secret brotherhood known as the Illuminati...the most powerful underground organization ever to walk the earth. The Illuminati has now surfaced to carry out the final phase of its legendary vendetta against its most hated enemy—the Catholic Church.",
+                "author": "Dan Brown",
+                "publisher": "Pocket Books",
+                "year": "2000",
+                "series": "Robert Langdon #1",
+                "reviews": ["1d48ff0c-d1c7-4ec4-bc58-0e4c7f7c7a8e"],
+                "_createdOn": 1613551279012
             },
+            "4d5a9156-8c8b-4c0d-b2bc-8e2b55c334d8": {
+                "title": "Inferno",
+                "cover": "https://m.media-amazon.com/images/I/81WQpNyauNL._SL1500_.jpg",
+                "description": "In his international blockbusters The Da Vinci Code, Angels & Demons, and The Lost Symbol, Dan Brown masterfully fused history, art, codes, and symbols. In this riveting new thriller, Brown returns to his element and has crafted his highest-stakes novel to date. In the heart of Italy, Harvard professor of symbology, Robert Langdon, is drawn into a harrowing world centered around one of history’s most enduring and mysterious literary masterpieces...Dante’s Inferno.",
+                "author": "Dan Brown",
+                "publisher": "Doubleday",
+                "year": "2013",
+                "series": "Robert Langdon #4",
+                "reviews": ["2e68f8c3-aadc-45b9-92b0-7349d2d28cfc"],
+                "_createdOn": 1613551279012
+            },
+            "5c8a1284-9f47-42ab-8d4c-65f73046e3d4": {
+                "title": "Digital Fortress",
+                "cover": "https://m.media-amazon.com/images/I/91Oane5f2GL._SL1500_.jpg",
+                "description": "When the NSA's invincible code-breaking machine encounters a mysterious code it cannot break, the agency calls in its head cryptographer, Susan Fletcher, a brilliant, beautiful mathematician. What she uncovers sends shock waves through the corridors of power. The NSA is being held hostage...not by guns or bombs, but by a code so ingeniously complex that if released would cripple U.S. intelligence.",
+                "author": "Dan Brown",
+                "publisher": "St. Martin's Press",
+                "year": "1998",
+                "reviews": ["3d2c44e9-2f29-4d7e-9a27-3e1d676d5a4d"],
+                "_createdOn": 1613551279012
+            },
+            "6d72b285-6b6e-4d56-bc12-f1b9a73e24e7": {
+                "title": "Deception Point",
+                "cover": "https://m.media-amazon.com/images/I/81wPs91sCYL._SL1500_.jpg",
+                "description": "When a NASA satellite detects evidence of an astonishingly rare object buried deep in the Arctic ice, the floundering space agency proclaims a much-needed victory—a victory that has profound implications for U.S. space policy and the impending presidential election. To verify the authenticity of the find, the White House calls upon intelligence analyst Rachel Sexton. Accompanied by a team of experts, including the charismatic academic Michael Tolland, Rachel uncovers the unthinkable: evidence of scientific trickery—a bold deception that threatens to plunge the world into controversy.",
+                "author": "Dan Brown",
+                "publisher": "Simon & Schuster",
+                "year": "2001",
+                "reviews": ["4d6a5c8e-e9e2-4f1b-bd77-d4c0f2dba394"],
+                "_createdOn": 1613551279012
+            }
         },
         reviews: {
             "0a272c58-b7ea-4e09-a000-7ec988248f64": {
