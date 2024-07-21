@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <div className=" bg-slate-800 bg-cover bg-coverImg">
+      <div className="bg-cover bg-coverImg">
         <AuthProvider>
           <Navigation />
           <Routes>
