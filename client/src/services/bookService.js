@@ -1,10 +1,9 @@
-import * as request from '../lib/request'
+import * as request from "../lib/request";
 
-const baseUrl = "http://localhost:3030/data/books"
-
+const baseUrl = "http://localhost:3030/data/books";
 
 export const getAll = async () => {
-    const response = await request.get(baseUrl);
+  const response = await request.get(baseUrl);
 
-    return response;
-}
+  return await response;
+};
