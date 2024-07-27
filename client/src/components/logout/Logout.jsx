@@ -1,27 +1,28 @@
-import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
-
-import * as authService from '../../services/authService'
-import AuthContext from "../../contexts/AuthContext";
-import Path from "../../paths";
-
-
-
+import { useState } from "react";
+import LogoutModal from "./LogoutModal/LogoutModal";
 
 const Logout = () => {
-    const navigate = useNavigate();
-    const { logoutHandler } = useContext(AuthContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    useEffect(() => {
-        authService.logout()
-            .then(() => {
-                logoutHandler();
-                console.log('out');
-                navigate(Path.Home);
-            }).catch(() => navigate(Path.Home))
-    }, [])
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
-    return null;
-}
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
-export default Logout
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <button
+        className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+        onClick={openModal}
+      >
+        Logout
+      </button>
+      <LogoutModal isOpen={isModalOpen} onClose={closeModal} />
+    </div>
+  );
+};
+
+export default Logout;
