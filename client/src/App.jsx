@@ -11,6 +11,7 @@ import PublicRoute from "./guards/PublicRoute";
 import PrivateRoute from "./guards/PrivateRoute";
 import BooksPage from "./components/booksPage/BooksPage";
 import MainLayout from "./layouts/MainLayout";
+import BookDetails from "./components/bookDetails/BookDetails";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/books" element={<BooksPage />} />
+                <Route path="/books/:id" element={<BookDetails />} />
 
                 <Route element={<PrivateRoute />}>
                   <Route path="/logout" element={<Logout />} />
