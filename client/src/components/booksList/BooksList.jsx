@@ -2,7 +2,7 @@ import { useContext } from "react";
 import BooksLayout from "../../layouts/BooksLayout";
 import Book from "../book/Book";
 import BookContext from "../../contexts/BookContext";
-const Books = () => {
+const BooksList = () => {
   const { books } = useContext(BookContext);
   return (
     <BooksLayout>
@@ -17,4 +17,4 @@ const Books = () => {
   );
 };
 
-export default Books;
+export default BooksList;

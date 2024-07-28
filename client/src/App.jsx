@@ -7,10 +7,10 @@ import Register from "./components/register/Register";
 import Navigation from "./components/navigation/Navigation";
 import Logout from "./components/logout/Logout";
 import Home from "./components/home/Home";
-import Books from "./components/books/Books";
 import { BookProvider } from "./contexts/BookContext";
 import PublicRoute from "./guards/PublicRoute";
 import PrivateRoute from "./guards/PrivateRoute";
+import BooksList from "./components/booksList/BooksList";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
             <Navigation />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/books" element={<Books />} />
+              <Route path="/books" element={<BooksList />} />
 
               <Route element={<PrivateRoute />}>
                 <Route path="/logout" element={<Logout />} />
