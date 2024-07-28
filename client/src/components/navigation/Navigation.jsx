@@ -1,20 +1,12 @@
 import { Link } from "react-router-dom";
 import Path from "../../paths";
 import { useContext, useEffect, useState } from "react";
-import * as bookService from "../../services/bookService";
 
 import { FaTimes } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
 import AuthContext from "../../contexts/AuthContext";
-import BookContext from "../../contexts/BookContext";
 
 const Navigation = () => {
-  const { initializeBooks } = useContext(BookContext);
-
-  useEffect(() => {
-    bookService.getAll().then(initializeBooks);
-  }, []);
-
   const [click, setClick] = useState(false);
   const handleClick = () => {
     setClick(!click);
