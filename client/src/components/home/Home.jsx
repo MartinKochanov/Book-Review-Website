@@ -1,5 +1,6 @@
 import { FaBook } from "react-icons/fa";
 import coverImage from "../../assets/cover.png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -25,9 +26,13 @@ const Home = () => {
           <p className="text-lg text-gray-300 mb-6">
             Explore a wide variety of books and find your next favorite.
           </p>
-          <button className="mt-4 px-6 py-3 bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:bg-blue-800">
-            Browse Our Collection
-          </button>
+
+          <Link to="/books">
+            {" "}
+            <button className="mt-4 px-6 py-3 bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:bg-blue-800">
+              Browse Our Collection
+            </button>
+          </Link>
         </section>
       </main>
     </div>
