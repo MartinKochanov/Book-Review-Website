@@ -11,9 +11,14 @@ export const BookProvider = ({ children }) => {
     setBooks(initialBooks);
   }, []);
 
+  const addBookToState = useCallback((book) => {
+    setBooks((b) => [...b, book]);
+  }, []);
+
   const values = {
     books,
     initializeBooks,
+    addBookToState,
   };
   return <BookContext.Provider value={values}>{children}</BookContext.Provider>;
 };
