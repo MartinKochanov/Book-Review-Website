@@ -6,6 +6,7 @@ import AuthContext from "../../contexts/AuthContext";
 import CenteredLayout from "../../layouts/CenteredLayout";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import MainLayout from "../../layouts/MainLayout";
 
 const RegistrationFormKeys = {
   Email: "email",

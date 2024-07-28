@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import BooksLayout from "../../layouts/BooksLayout";
-import Book from "../book/Book";
+import Book from "../bookListItem/BookListItem.jsx";
 import BookContext from "../../contexts/BookContext";
 const BooksList = () => {
   const { books } = useContext(BookContext);

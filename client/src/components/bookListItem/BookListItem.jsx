@@ -1,6 +1,6 @@
 import { GiOpenBook } from "react-icons/gi";
 
-const Book = ({ book }) => {
+const BookListItem = ({ book }) => {
   return (
     <div className="p-4 max-w-sm">
       <div className="flex rounded-lg h-full bg-gray-800 p-8 flex-col">
@@ -41,4 +41,4 @@ const Book = ({ book }) => {
   );
 };
 
-export default Book;
+export default BookListItem;
