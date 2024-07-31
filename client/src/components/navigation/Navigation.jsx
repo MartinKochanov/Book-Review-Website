@@ -12,7 +12,7 @@ const Navigation = () => {
     setClick(!click);
   };
 
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, role } = useContext(AuthContext);
 
   const content = (
     <>
@@ -47,20 +47,20 @@ const Navigation = () => {
               </Link>
             </>
           )}
+          {isAuthenticated && role === "ADMIN" && (
+            <Link to={Path.AddBook}>
+              <li className="hover:text-indigo-500 transsition border-b-2 border-slate-900 hover:border-indigo-500 cursor-pointer transition-colors">
+                Add Book
+              </li>
+            </Link>
+          )}
 
           {isAuthenticated && (
-            <>
-              <Link to={Path.AddBook} onClick={handleClick}>
-                <li className="my-4 py-4 border-b border-slate-800 hover:bg-slate-800 hover:rounded">
-                  Add Book
-                </li>
-              </Link>
-              <Link to={Path.Logout} onClick={handleClick}>
-                <li className="my-4 py-4 border-b border-slate-800 hover:bg-slate-800 hover:rounded">
-                  Logout
-                </li>
-              </Link>
-            </>
+            <Link to={Path.Logout} onClick={handleClick}>
+              <li className="my-4 py-4 border-b border-slate-800 hover:bg-slate-800 hover:rounded">
+                Logout
+              </li>
+            </Link>
           )}
         </ul>
       </div>
@@ -110,13 +110,17 @@ const Navigation = () => {
                   </Link>
                 </>
               )}
+
+              {isAuthenticated && role === "ADMIN" && (
+                <Link to={Path.AddBook}>
+                  <li className="hover:text-indigo-500 transsition border-b-2 border-slate-900 hover:border-indigo-500 cursor-pointer transition-colors">
+                    Add Book
+                  </li>
+                </Link>
+              )}
+
               {isAuthenticated && (
                 <>
-                  <Link to={Path.AddBook}>
-                    <li className="hover:text-indigo-500 transsition border-b-2 border-slate-900 hover:border-indigo-500 cursor-pointer transition-colors">
-                      Add Book
-                    </li>
-                  </Link>
                   <Link to={Path.Logout}>
                     <li className="hover:text-indigo-500 transsition border-b-2 border-slate-900 hover:border-indigo-500 cursor-pointer transition-colors">
                       Logout

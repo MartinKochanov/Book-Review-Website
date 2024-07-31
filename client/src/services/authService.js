@@ -13,6 +13,7 @@ export const register = async (email, password) => {
   return request.post(`${baseUrl}/register`, {
     email,
     password,
+    role: "USER",
   });
 };
 

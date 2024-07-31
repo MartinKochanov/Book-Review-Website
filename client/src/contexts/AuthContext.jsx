@@ -17,8 +17,8 @@ export const AuthProvider = ({ children }) => {
     authService
       .login(values.email, values.password)
       .then((res) => {
-        const { email, accessToken, _id } = res;
-        setAuth({ email, accessToken, _id });
+        const { email, accessToken, _id, role } = res;
+        setAuth({ email, accessToken, _id, role });
         setAuthError(null);
         navigate(Path.Home);
       })
@@ -31,8 +31,8 @@ export const AuthProvider = ({ children }) => {
     authService
       .register(values.email, values.password)
       .then((res) => {
-        const { email, accessToken, _id } = res;
-        setAuth({ email, accessToken, _id });
+        const { email, accessToken, _id, role } = res;
+        setAuth({ email, accessToken, _id, role });
         setAuthError(null);
         navigate(Path.Home);
       })
@@ -54,6 +54,7 @@ export const AuthProvider = ({ children }) => {
     logoutHandler,
     username: auth.username || auth.email,
     isAuthenticated: !!auth.accessToken,
+    role: auth.role,
   };
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;

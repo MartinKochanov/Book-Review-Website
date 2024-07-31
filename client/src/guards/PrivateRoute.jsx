@@ -6,7 +6,7 @@ import Path from "../paths";
 const PrivateRoute = () => {
   const { isAuthenticated } = useContext(AuthContext);
 
-  return !isAuthenticated ? <Navigate to={Path.Home} /> : <Outlet />;
+  return !isAuthenticated ? <Navigate to={Path.Login} /> : <Outlet />;
 };
 
 export default PrivateRoute;
