@@ -12,6 +12,7 @@ import PrivateRoute from "./guards/PrivateRoute";
 import BooksPage from "./components/booksPage/BooksPage";
 import MainLayout from "./layouts/MainLayout";
 import BookDetails from "./components/bookDetails/BookDetails";
+import NotFound from "./components/notFound/NotFound";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
                 </Route>
+                <Route path="/*" element={<NotFound />} />
               </Routes>
             </MainLayout>
           </BookProvider>

@@ -11,7 +11,7 @@ const MainLayout = ({ children }) => {
     bookService.getAll().then(initializeBooks);
   }, []);
   return (
-    <div className=" text-white flex flex-col justify-center">
+    <div className=" text-white flex flex-col justify-center bg-coverImg">
       <Navigation />
       {children}
     </div>
