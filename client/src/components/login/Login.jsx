@@ -30,7 +30,7 @@ const Login = () => {
       .email("Invalid email address")
       .required("Email is required"),
     [LoginFormKeys.Password]: Yup.string()
-      .min(8, "Password must be at least 8 characters")
+      .min(5, "Password must be at least 5 characters")
       .required("Password is required"),
   });
 
@@ -62,7 +62,7 @@ const Login = () => {
               type="email"
               id="email"
               name={LoginFormKeys.Email}
-              className="block w-72 py-2.5 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white peer"
+              className="block w-72 py-2.5 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white peer input-autofill-fix"
               placeholder=""
               value={formik.values[LoginFormKeys.Email]}
               onChange={formik.handleChange}

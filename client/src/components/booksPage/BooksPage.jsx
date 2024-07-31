@@ -1,8 +1,11 @@
-import MainLayout from "../../layouts/MainLayout";
+import { useContext } from "react";
 import BooksList from "../booksList/BooksList";
+import BookContext from "../../contexts/BookContext";
 
 const BooksPage = () => {
-  return <BooksList />;
+  const { books } = useContext(BookContext);
+
+  return <BooksList books={books} />;
 };
 
 export default BooksPage;

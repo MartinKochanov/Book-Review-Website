@@ -12,7 +12,7 @@ const BookDetails = () => {
   }, [id]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-900 py-10 px-4">
+    <div className="min-h-screen flex flex-col items-center py-10 px-4">
       <div className="w-full max-w-5xl bg-gray-800 p-8 rounded-lg shadow-2xl overflow-hidden">
         <div className="flex flex-col md:flex-row items-center md:items-start">
           <img

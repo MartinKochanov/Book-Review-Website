@@ -13,6 +13,8 @@ import BooksPage from "./components/booksPage/BooksPage";
 import MainLayout from "./layouts/MainLayout";
 import BookDetails from "./components/bookDetails/BookDetails";
 import NotFound from "./components/notFound/NotFound";
+import AdminRoute from "./guards/AdminRoute";
+import CreateBook from "./components/createBook/CreateBook";
 
 function App() {
   return (
@@ -24,10 +26,14 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/books" element={<BooksPage />} />
-                <Route path="/books/:id" element={<BookDetails />} />
 
                 <Route element={<PrivateRoute />}>
                   <Route path="/logout" element={<Logout />} />
+                  <Route path="/books/:id" element={<BookDetails />} />
+                </Route>
+
+                <Route element={<AdminRoute />}>
+                  <Route path="add-book" element={<CreateBook />} />
                 </Route>
 
                 <Route element={<PublicRoute />}>

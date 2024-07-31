@@ -6,7 +6,6 @@ import Path from "../paths";
 const AdminRoute = () => {
   const { role } = useContext(AuthContext);
 
-  console.log(role);
   return role !== "ADMIN" ? <Navigate to={Path.Login} /> : <Outlet />;
 };
 

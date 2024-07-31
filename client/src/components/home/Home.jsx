@@ -1,8 +1,15 @@
 import { FaBook } from "react-icons/fa";
 import coverImage from "../../assets/cover.png";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import BookContext from "../../contexts/BookContext";
+import BooksList from "../booksList/BooksList";
 
 const Home = () => {
+  const { books } = useContext(BookContext);
+
+  const recentBooks = books.slice(-3);
+
   return (
     <div
       className="min-h-screen flex flex-col items-center text-gray-100"
@@ -34,6 +41,7 @@ const Home = () => {
             </button>
           </Link>
         </section>
+        <BooksList books={recentBooks} />
       </main>
     </div>
   );
