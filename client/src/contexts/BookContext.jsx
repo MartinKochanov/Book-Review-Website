@@ -25,12 +25,19 @@ export const BookProvider = ({ children }) => {
     }, []);
 
     const updateBookInState = useCallback((id, values) => {
+        console.log(id);
         setBooks((b) =>
             b.map((book) =>
                 book._id === id
                     ? {
                           ...book,
-                          ...values,
+                          title: values.title,
+                          cover: values.cover,
+                          description: values.description,
+                          author: values.author,
+                          publisher: values.publisher,
+                          year: values.year,
+                          series: values.series,
                       }
                     : book
             )

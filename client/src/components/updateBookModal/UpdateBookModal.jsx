@@ -57,7 +57,7 @@ const UpdateBookModal = ({ book, toggleUpdateModal }) => {
         onSubmit: (values) => {
             bookService
                 .updateBook(book._id, values)
-                .then(() => updateBookInState(book._id, values));
+                .then((res) => updateBookInState(book._id, res));
             toggleUpdateModal();
             navigate(Path.Books);
         },

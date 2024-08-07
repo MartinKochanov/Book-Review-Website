@@ -15,39 +15,60 @@ import BookDetails from "./components/bookDetails/BookDetails";
 import NotFound from "./components/notFound/NotFound";
 import AdminRoute from "./guards/AdminRoute";
 import CreateBook from "./components/createBook/CreateBook";
+import { ReviewProvider } from "./contexts/ReviewContext";
 
 function App() {
-  return (
-    <>
-      <div className="bg-cover bg-coverImg">
-        <AuthProvider>
-          <BookProvider>
-            <MainLayout>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/books" element={<BooksPage />} />
+    return (
+        <>
+            <div className="bg-cover bg-coverImg">
+                <AuthProvider>
+                    <BookProvider>
+                        <ReviewProvider>
+                            <MainLayout>
+                                <Routes>
+                                    <Route path="/" element={<Home />} />
+                                    <Route
+                                        path="/books"
+                                        element={<BooksPage />}
+                                    />
 
-                <Route element={<PrivateRoute />}>
-                  <Route path="/logout" element={<Logout />} />
-                  <Route path="/books/:id" element={<BookDetails />} />
-                </Route>
+                                    <Route element={<PrivateRoute />}>
+                                        <Route
+                                            path="/logout"
+                                            element={<Logout />}
+                                        />
+                                        <Route
+                                            path="/books/:id"
+                                            element={<BookDetails />}
+                                        />
+                                    </Route>
 
-                <Route element={<AdminRoute />}>
-                  <Route path="add-book" element={<CreateBook />} />
-                </Route>
+                                    <Route element={<AdminRoute />}>
+                                        <Route
+                                            path="add-book"
+                                            element={<CreateBook />}
+                                        />
+                                    </Route>
 
-                <Route element={<PublicRoute />}>
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/register" element={<Register />} />
-                </Route>
-                <Route path="/*" element={<NotFound />} />
-              </Routes>
-            </MainLayout>
-          </BookProvider>
-        </AuthProvider>
-      </div>
-    </>
-  );
+                                    <Route element={<PublicRoute />}>
+                                        <Route
+                                            path="/login"
+                                            element={<Login />}
+                                        />
+                                        <Route
+                                            path="/register"
+                                            element={<Register />}
+                                        />
+                                    </Route>
+                                    <Route path="/*" element={<NotFound />} />
+                                </Routes>
+                            </MainLayout>
+                        </ReviewProvider>
+                    </BookProvider>
+                </AuthProvider>
+            </div>
+        </>
+    );
 }
 
 export default App;
