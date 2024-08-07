@@ -16,6 +16,7 @@ import NotFound from "./components/notFound/NotFound";
 import AdminRoute from "./guards/AdminRoute";
 import CreateBook from "./components/createBook/CreateBook";
 import { ReviewProvider } from "./contexts/ReviewContext";
+import AboutPage from "./components/about/About";
 
 function App() {
     return (
@@ -30,6 +31,10 @@ function App() {
                                     <Route
                                         path="/books"
                                         element={<BooksPage />}
+                                    />
+                                    <Route
+                                        path="/about"
+                                        element={<AboutPage />}
                                     />
 
                                     <Route element={<PrivateRoute />}>
