@@ -24,21 +24,18 @@ export const BookProvider = ({ children }) => {
         setBooks((b) => b.filter((book) => book._id !== id));
     }, []);
 
-    const updateBookInState = useCallback(
-        (id, values) => {
-            setBooks((b) =>
-                b.map((book) =>
-                    book._id === id
-                        ? {
-                              ...book,
-                              ...values,
-                          }
-                        : book
-                )
-            );
-        },
-        [setBooks]
-    );
+    const updateBookInState = useCallback((id, values) => {
+        setBooks((b) =>
+            b.map((book) =>
+                book._id === id
+                    ? {
+                          ...book,
+                          ...values,
+                      }
+                    : book
+            )
+        );
+    }, []);
     const values = {
         books,
         initializeBooks,

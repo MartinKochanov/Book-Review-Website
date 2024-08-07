@@ -100,6 +100,7 @@ const BookDetails = () => {
 
             {deleteModalOpened && (
                 <DeleteBookModal
+                    object={"book"}
                     toggleModal={toggleDeleteModal}
                     handleConfirmDeleteClick={handleConfirmDeleteClick}
                 />
