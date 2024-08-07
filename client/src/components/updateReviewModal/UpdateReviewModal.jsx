@@ -15,12 +15,12 @@ const UpdateReviewModal = ({ bookId, id, toggleModal }) => {
                 .required("Review content is required")
                 .min(5, "Review must be at least 5 characters long"),
         }),
-        onSubmit: (values) => {
+        onSubmit: (values, { resetForm }) => {
             reviewService
                 .editReview(bookId, auth, id, values)
                 .then((res) => updateReviewInState(id, res.content));
             toggleModal();
-            values.content = "";
+            resetForm();
         },
     });
     return (
