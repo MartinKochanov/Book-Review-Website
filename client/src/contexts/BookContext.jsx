@@ -6,27 +6,50 @@ const BookContext = createContext();
 BookContext.displayName = "BookContext";
 
 export const BookProvider = ({ children }) => {
-  const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState([]);
 
-  const createBookSubmitHandler = (values) => {
-    bookService.create(values).then(addBookToState);
-  };
+    const createBookSubmitHandler = (values) => {
+        bookService.create(values).then(addBookToState);
+    };
 
-  const initializeBooks = useCallback((initialBooks) => {
-    setBooks(initialBooks);
-  }, []);
+    const initializeBooks = useCallback((initialBooks) => {
+        setBooks(initialBooks);
+    }, []);
 
-  const addBookToState = useCallback((book) => {
-    setBooks((b) => [...b, book]);
-  }, []);
+    const addBookToState = useCallback((book) => {
+        setBooks((b) => [...b, book]);
+    }, []);
 
-  const values = {
-    books,
-    initializeBooks,
-    addBookToState,
-    createBookSubmitHandler,
-  };
-  return <BookContext.Provider value={values}>{children}</BookContext.Provider>;
+    const removeBookFromState = useCallback((id) => {
+        setBooks((b) => b.filter((book) => book._id !== id));
+    }, []);
+
+    const updateBookInState = useCallback(
+        (id, values) => {
+            setBooks((b) =>
+                b.map((book) =>
+                    book._id === id
+                        ? {
+                              ...book,
+                              ...values,
+                          }
+                        : book
+                )
+            );
+        },
+        [setBooks]
+    );
+    const values = {
+        books,
+        initializeBooks,
+        addBookToState,
+        createBookSubmitHandler,
+        removeBookFromState,
+        updateBookInState,
+    };
+    return (
+        <BookContext.Provider value={values}>{children}</BookContext.Provider>
+    );
 };
 
 export default BookContext;

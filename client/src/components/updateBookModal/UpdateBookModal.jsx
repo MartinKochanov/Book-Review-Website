@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineFileImage } from "react-icons/ai";
-import { MdTitle } from "react-icons/md";
-import { BsPerson, BsBook } from "react-icons/bs";
-import { ImBooks } from "react-icons/im";
-import CenteredLayout from "../../layouts/CenteredLayout";
 import BookContext from "../../contexts/BookContext";
+import { MdTitle } from "react-icons/md";
+import { AiOutlineFileImage } from "react-icons/ai";
+import { BsBook, BsPerson } from "react-icons/bs";
+import { ImBooks } from "react-icons/im";
 import Path from "../../paths";
+import * as bookService from "../../services/bookService";
 
 const CreateBookFormKeys = {
     Title: "title",
@@ -20,10 +20,9 @@ const CreateBookFormKeys = {
     Series: "series",
 };
 
-const CreateBook = () => {
+const UpdateBookModal = ({ book, toggleUpdateModal }) => {
+    const { updateBookInState } = useContext(BookContext);
     const navigate = useNavigate();
-
-    const { createBookSubmitHandler } = useContext(BookContext);
 
     const validationSchema = Yup.object({
         [CreateBookFormKeys.Title]: Yup.string().required("Title is required"),
@@ -46,26 +45,29 @@ const CreateBook = () => {
 
     const formik = useFormik({
         initialValues: {
-            [CreateBookFormKeys.Title]: "",
-            [CreateBookFormKeys.Cover]: "",
-            [CreateBookFormKeys.Description]: "",
-            [CreateBookFormKeys.Author]: "",
-            [CreateBookFormKeys.Publisher]: "",
-            [CreateBookFormKeys.Year]: "",
-            [CreateBookFormKeys.Series]: "",
+            [CreateBookFormKeys.Title]: book.title || "",
+            [CreateBookFormKeys.Cover]: book.cover || "",
+            [CreateBookFormKeys.Description]: book.description || "",
+            [CreateBookFormKeys.Author]: book.author || "",
+            [CreateBookFormKeys.Publisher]: book.publisher || "",
+            [CreateBookFormKeys.Year]: book.year || "",
+            [CreateBookFormKeys.Series]: book.series || "",
         },
         validationSchema,
         onSubmit: (values) => {
-            createBookSubmitHandler(values);
+            bookService
+                .updateBook(book._id, values)
+                .then((res) => updateBookInState(res._id, values));
+            toggleUpdateModal();
             navigate(Path.Books);
         },
     });
 
     return (
-        <CenteredLayout>
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-slate-800 border border-slate-400 rounded-md w-1/4 p-8 shadow-lg backdrop-filter backdrop-blur-xl bg-opacity-0 relative">
                 <h1 className="text-4xl text-white font-bold text-center mb-6">
-                    Create Book
+                    Update Book
                 </h1>
                 <form onSubmit={formik.handleSubmit}>
                     {/* Title */}
@@ -129,7 +131,7 @@ const CreateBook = () => {
                             name={CreateBookFormKeys.Description}
                             className="block w-full py-2.5 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:border-blue-500 focus:outline-none focus:ring-0 peer"
                             placeholder=""
-                            rows="4"
+                            rows="12"
                             value={
                                 formik.values[CreateBookFormKeys.Description]
                             }
@@ -271,12 +273,19 @@ const CreateBook = () => {
                         className="w-full mb-4 text-[18px] mt-6 rounded-full bg-white text-emerald-800 hover:bg-emerald-600 hover:text-white py-2 transition-colors duration-300"
                         type="submit"
                     >
-                        Create Book
+                        Update Book
+                    </button>
+                    <button
+                        className="w-full mb-4 text-[18px] rounded-full bg-red-500 text-white py-2 transition-colors duration-300"
+                        type="button"
+                        onClick={toggleUpdateModal}
+                    >
+                        Cancel
                     </button>
                 </form>
             </div>
-        </CenteredLayout>
+        </div>
     );
 };
 
-export default CreateBook;
+export default UpdateBookModal;
