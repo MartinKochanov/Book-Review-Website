@@ -1,13 +1,16 @@
 import { useContext } from "react";
 import AuthContext from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+import Path from "../../paths";
 
-const LogoutModal = ({ isOpen, onClose }) => {
+const LogoutModal = ({ onClose }) => {
     const { logoutHandler } = useContext(AuthContext);
 
-    if (!isOpen) return null;
+    const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate(Path.Home);
         logoutHandler();
         onClose();
     };

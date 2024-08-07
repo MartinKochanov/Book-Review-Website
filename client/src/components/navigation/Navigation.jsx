@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
 import AuthContext from "../../contexts/AuthContext";
-import LogoutModal from "../LogoutModal";
+import LogoutModal from "../logoutModal/LogoutModal";
 
 const Navigation = () => {
     const [click, setClick] = useState(false);
