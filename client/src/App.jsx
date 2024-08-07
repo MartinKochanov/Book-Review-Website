@@ -4,7 +4,6 @@ import { AuthProvider } from "./contexts/AuthContext";
 
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
-import Logout from "./components/logout/Logout";
 import Home from "./components/home/Home";
 import { BookProvider } from "./contexts/BookContext";
 import PublicRoute from "./guards/PublicRoute";
@@ -16,7 +15,7 @@ import NotFound from "./components/notFound/NotFound";
 import AdminRoute from "./guards/AdminRoute";
 import CreateBook from "./components/createBook/CreateBook";
 import { ReviewProvider } from "./contexts/ReviewContext";
-import AboutPage from "./components/about/About";
+import AboutPage from "./components/About/About";
 
 function App() {
     return (
@@ -38,10 +37,6 @@ function App() {
                                     />
 
                                     <Route element={<PrivateRoute />}>
-                                        <Route
-                                            path="/logout"
-                                            element={<Logout />}
-                                        />
                                         <Route
                                             path="/books/:id"
                                             element={<BookDetails />}
